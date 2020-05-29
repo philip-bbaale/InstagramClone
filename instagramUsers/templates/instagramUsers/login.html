@@ -4,6 +4,17 @@
     <div class="content-section">
         <div class="card">
 
+            {% if user.is_authenticated %}
+            <h5 class="card-header">Log In &</h5>
+            <div class="card-body">
+                <h5 class="card-title">Continue as...</h5>
+                <a href="{% url 'instagramHome-home' %}" class="btn btn-outline-info" >{{user.username}}</a>
+            </div>
+            <div class="card-footer text-muted">
+                <small class="text-muted">Not {{user.username}} <a class="ml-2" href="{% url 'logout' %}">Switch Accouts</a></small>
+            </div>
+
+            {% else %}
             <form method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
@@ -20,7 +31,7 @@
             <div class="border-top pt-3 card-footer">
                 <small class="text-muted">Need an account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a></small>
             </div>
-
+            {% endif %}
         </div>
         
     </div>
