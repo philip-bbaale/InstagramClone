@@ -19,37 +19,21 @@
     {% endif %}
 </head>
 <body>
-    <!--header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-        <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">PipGram</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
-            </div-->
-            <!-- Navbar Right Side -->
-            <!--div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Login</a>
-              <a class="nav-item nav-link" href="#">Register</a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </header-->
+    
     <main role="main" class="container">
 
-        <h1 class="text-center" style="font-family: 'Balsamiq Sans', cursive;">PipGram</h1>
+        <h1 class="text-center mt-5" style="font-family: 'Balsamiq Sans', cursive;">PipGram</h1>
 
-        <div class="row">
-            <div class="col-md-8">
+        <div class="row mt-5">
+            <div class="col-md-8 content-section">
             {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
-                <h3>Instagram is an American photo and video-sharing social networking service owned by Facebook, Inc. It was created by Kevin Systrom and Mike Krieger, and launched in October 2010 on iOS.</h3>
+                <div class="card">
+                    <div class="card-body">
+                        Instagram is an American photo and video-sharing social networking service owned by Facebook, Inc. It was created by Kevin Systrom and Mike Krieger, and launched in October 2010 on iOS.
+                    </div>
+                  </div>
             </div>
         </div>
           
