@@ -1,4 +1,5 @@
 {% extends "instagramUsers/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
         <div class="card">
@@ -8,7 +9,7 @@
                 <fieldset class="form-group">
                     <legend class=" border-bottom mb-4 card-header">Join Today</legend>
                     <div class="card-body">
-                        {{ form.as_p }}
+                        {{ form|crispy }}
                     </div>
                 </fieldset>
                 <div class="form-group card-body">

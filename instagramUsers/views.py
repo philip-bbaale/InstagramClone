@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from .forms import UserRegisterForm
+from django.views.decorators.csrf import csrf_protect
+
 
 # Create your views here.
-
+@csrf_protect
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -11,7 +13,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
-            return redirect(request, 'instagramUsers/register.html', {'form':form})
+            return render(request, 'instagramUsers/register.html', {'form':form})
     else:
         form = UserRegisterForm()
     return render(request, 'instagramUsers/register.html', {'form':form})
