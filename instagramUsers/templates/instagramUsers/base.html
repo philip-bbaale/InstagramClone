@@ -25,7 +25,12 @@
         <h1 class="text-center mt-5" style="font-family: 'Balsamiq Sans', cursive;">PipGram</h1>
 
         <div class="row mt-5">
-            <div class="col-md-8 content-section">
+            <div class="col-md-8 ">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert{{ message.tags }}">{{ message }}</div>
+                    {% endfor%}
+                {% endif %}
             {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
