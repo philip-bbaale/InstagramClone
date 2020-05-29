@@ -17,3 +17,6 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'instagramUsers/register.html', {'form':form})
+
+def profile(request):
+    return render(request, 'instagramUsers/profile.html')
