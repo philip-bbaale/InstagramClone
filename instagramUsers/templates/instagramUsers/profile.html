@@ -1,7 +1,22 @@
 {% extends "instagramHome/base.html" %}
 {% block content %}
 <div class="container">
-    <h1>{{user.username}}</h1>
+
+    <div class="card mt-5 mb-3 shadow-lg">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img class=" card-img " src="{{ user.profile.image.url }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">{{ user.username }}</h2>
+                    <p class="card-text">{{ user.email }} <span class="mr-auto"><a class="ml-2" href="{% url 'logout' %}">Log out.</a></span></p>
+                    <hr class="bg-warning">
+                    <p class="card-text"><small class="text-muted"></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
-    
 {% endblock %}
