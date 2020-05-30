@@ -1,8 +1,8 @@
 from django.apps import AppConfig
 
 
-class InstagramusersConfig(AppConfig):
-    name = 'instagramUsers'
+class UsersConfig(AppConfig):
+    name = 'users'
 
     def ready(self):
-        import instagramUsers.signals
+        import users.signals
