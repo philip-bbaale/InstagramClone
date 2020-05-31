@@ -1,16 +1,27 @@
 {% extends "instagramHome/base.html" %}
+{% load static %}
 {% block content %}
+
 <div class="container">
 {% for post in posts %}
-    <div class="card mb-3">
-        <img src="{% static 'image/xx20.jpg' %}" class="card-img-top" alt="{{post.image}}">
+
+    <div class="card mb-3 mt-5">
+        <div class="card-header">
+            <h2 class="card-title"><span><img class="img-thumbnail rounded-circle" src="{{ user.profile.image.url }}" style="height: 50px; width: 50px;"></span>   {{post.profile}}</h2>
+        </div>
+        
         <div class="card-body">
-            <h2 class="card-title">{{post.profile}}</h2>
-          <h5 class="card-title">{{ post.image_name }}</h5>
-          <p class="card-text">{{ post.image_caption }}</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <h3 class="card-title"><span class="badge badge-info">{{ post.image_name }}</span></h3>
+            <img src="{% static 'image/xx20.jpg' %}" class="card-img-top img-fluid" alt="{{post.image}}">
+        </div>
+
+        <div class="card-footer">
+            <h4 class="card-text">{{ post.image_caption }}</h4>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
     </div>
+
 {% endfor %}
 </div>
+
 {% endblock %}
