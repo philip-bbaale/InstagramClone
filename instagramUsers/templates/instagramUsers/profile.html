@@ -13,7 +13,7 @@
                     <h2 class="card-title">{{ user.username }}</h2>
                     <p class="card-text"><span class="badge badge-secondary">{{ user.email }}</span><span class="mr-auto"><a class="ml-2" href="{% url 'logout' %}">Log out.</a></span></p>
                     <hr class="bg-warning">
-                    <p class="card-text"><small class="text-muted">{{user.bio}}</small></p>
+                    <p class="card-text"><small class="text-muted">{{user.profile.bio}}</small></p>
                 </div>
                     <div class="row no-gutters justify-content-end">
                         <form method="POST" enctype="multipart/form-data">
