@@ -1,6 +1,16 @@
 {% extends "instagramHome/base.html" %}
 {% block content %}
 <div class="container">
-    <h1>Home</h1>
+{% for post in posts %}
+    <div class="card mb-3">
+        <img src="{% static 'image/xx20.jpg' %}" class="card-img-top" alt="{{post.image}}">
+        <div class="card-body">
+            <h2 class="card-title">{{post.profile}}</h2>
+          <h5 class="card-title">{{ post.image_name }}</h5>
+          <p class="card-text">{{ post.image_caption }}</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+{% endfor %}
 </div>
 {% endblock %}
