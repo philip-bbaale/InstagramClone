@@ -3,6 +3,8 @@ from .models import Post,Comment
 from .froms import PostForm, CommentForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
+
 
 
 # Create your views here.
@@ -20,6 +22,7 @@ def about(request):
     return render(request, 'instagramHome/about.html', {'title': 'About'})
 
 @login_required
+@csrf_protect
 def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)

@@ -25,6 +25,7 @@ def register(request):
     return render(request, 'instagramUsers/register.html', {'form':form})
 
 @login_required
+@csrf_protect
 def profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
