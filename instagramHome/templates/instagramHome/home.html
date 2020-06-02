@@ -7,17 +7,26 @@
 
     <div class="card mb-3 mt-5">
         <div class="card-header">
-            <h2 class="card-title"><span><img class="img-thumbnail rounded-circle" src="{{ user.profile.image.url }}" style="height: 50px; width: 50px;"></span>   {{post.profile}}</h2>
+            <h2 class="card-title"><a class="text-dark" href="#"><span><img class="img-thumbnail rounded-circle" src="{{ post.author.profile.image.url }}" style="height: 50px; width: 50px;"></span> {{ post.author }}</a></h2>
         </div>
         
         <div class="card-body">
-            <h3 class="card-title"><span class="badge badge-info">{{ post.image_name }}</span></h3>
-            <img src="{% static 'image/xx20.jpg' %}" class="card-img-top img-fluid" alt="{{post.image}}">
+            <a href="">
+                <h3 class="card-title"><span class="badge badge-info">{{ post.image_name }}</span></h3>
+                <img src="{{ post.image.url }}" class="card-img-top img-fluid" alt="{{post.image}}">
+            </a>
         </div>
 
         <div class="card-footer">
+            <a href="">
+                <button type="button" class="btn ">
+                    <img src="{% static 'image/icons8-love.png' %}" width="30" height="30"  class="d-inline-block align-top" alt="">
+                    <span class="badge badge-light">{{post.likes}}</span>
+                </button>
+            </a>
+            
             <h4 class="card-text">{{ post.image_caption }}</h4>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text"><small class="text-muted">Last updated {{post.last_modified}}</small></p>
         </div>
     </div>
 

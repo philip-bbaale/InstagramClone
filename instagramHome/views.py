@@ -1,20 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Post,Comment
 
 # Create your views here.
 
-posts = [
-    {
-        'image':'xxx',
-        'image_name':"Coding",
-        'image_caption':'Love Treese Life code Eat drink SLEEP',
-        'profile':'pip_bbaale',
-        'Likes':'200',
-    }
-]
-
 def home(request):
+    post = Post.objects.all().order_by('-last_modified')
+
     context={
-        'posts':posts
+        'posts' : post,
     }
     return render(request, 'instagramHome/home.html',context)
 
