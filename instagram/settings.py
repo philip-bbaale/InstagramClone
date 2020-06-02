@@ -27,7 +27,10 @@ SECRET_KEY = 's+1vw-afoub6tc-1k5#11=68vw%jy)ht=y6mf98iu+_n+7&_vy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'pipinstaclone.herokuapp.com',
+    'localhost'
+]
 
 
 # Application definition
