@@ -4,10 +4,10 @@ A clone of the website for the popular photo app Instagram.
 # App Screenshots:
 
 ## Home View
-<img src="">
+<img src="https://github.com/scrupycoco/InstagramClone/blob/master/media/screenshot1.png">
 
 ## Other View 
-<img src="">
+<img src="https://github.com/scrupycoco/InstagramClone/blob/master/media/screenshot2.png">
 
 
 # User stories
