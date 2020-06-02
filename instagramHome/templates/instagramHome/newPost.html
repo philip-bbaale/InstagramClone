@@ -1,0 +1,23 @@
+{% extends "instagramHome/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="content-section">
+        <div class="card">
+
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class=" border-bottom mb-4 card-header">Make a new post</legend>
+                    <div class="card-body">
+                        {{ form|crispy }}
+                    </div>
+                </fieldset>
+                <div class="form-group card-body">
+                    <button class="btn btn-outline-info " type="submit">Add Post</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+{% endblock %}
