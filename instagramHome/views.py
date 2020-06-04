@@ -40,3 +40,29 @@ def add_post(request):
 
     return render(request, 'instagramHome/newPost.html',context, {'title':'New Post'})
 
+@login_required
+@csrf_protect
+def post_detail(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = Comment(
+                author=form.cleaned_data["author"],
+                body=form.cleaned_data["body"],
+                post=post
+            )
+            comment.save()
+
+    comments = Comment.objects.filter(post=post)
+    context = {
+        "post": post,
+        "comments": comments,
+        "form": form,
+    }
+
+    return render(request, "post_detail.html", context)
+
+
