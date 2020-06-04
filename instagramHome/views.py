@@ -4,6 +4,8 @@ from .froms import PostForm, CommentForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.models import User
+
 
 
 
@@ -44,25 +46,25 @@ def add_post(request):
 @csrf_protect
 def post_detail(request, pk):
     post = Post.objects.get(pk=pk)
-
+    user = request.user
     form = CommentForm()
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = Comment(
-                author=form.cleaned_data["author"],
+                author= user,
                 body=form.cleaned_data["body"],
                 post=post
             )
             comment.save()
 
-    comments = Comment.objects.filter(post=post)
+    comments = Comment.objects.filter(post=post).order_by('-created_on')
     context = {
         "post": post,
         "comments": comments,
         "form": form,
     }
 
-    return render(request, "post_detail.html", context)
+    return render(request, "instagramHome/post_detail.html", context)
 
 

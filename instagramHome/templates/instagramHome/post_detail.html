@@ -1,10 +1,7 @@
 {% extends "instagramHome/base.html" %}
 {% load static %}
 {% block content %}
-
 <div class="container">
-{% for post in posts %}
-
     <div class="card mb-3 mt-5">
         <div class="card-header">
             <h2 class="card-title"><a class="text-dark" href="#"><span><img class="img-thumbnail rounded-circle" src="{{ post.author.profile.image.url }}" style="height: 50px; width: 50px;"></span> {{ post.author }}</a></h2>
@@ -31,7 +28,27 @@
 
     </div>
 
-{% endfor %}
-</div>
+    <div class="card">
+        <h3 class="card-header">Leave a comment:</h3>
+        <form class="card-body" action="/home{{ post.pk }}/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.body }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="card-footer">
+            <h3>Comments:</h3>
+        {% for comment in comments %}
+        <hr>
+        <p>
+            On {{comment.created_on.date }}&nbsp;
+            <b>{{ comment.author }}</b> wrote:
+        </p>
+        <p>{{ comment.body }}</p>
+        {% endfor %}
+        </div>
+    </div>
 
+</div>
 {% endblock %}
