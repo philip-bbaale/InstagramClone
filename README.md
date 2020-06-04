@@ -9,6 +9,9 @@ A clone of the website for the popular photo app Instagram.
 ## Other View 
 <img src="https://github.com/scrupycoco/InstagramClone/blob/master/media/screenshot2.png">
 
+## Single view
+<img src="https://github.com/scrupycoco/InstagramClone/blob/master/media/screenshot3.png">
+
 
 # User stories
 * Sign in to the application to start using.
