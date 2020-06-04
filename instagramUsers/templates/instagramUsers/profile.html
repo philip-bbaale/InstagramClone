@@ -39,7 +39,6 @@
     <h3 class="mt-5">My Posts.</h3>
     
     {% for post in posts %}
-    {% for user_post in user_posts %} 
     <div class="card mb-3 mt-5">
         <div class="card-header">
             <h2 class="card-title"><a class="text-dark" href="#"><span><img class="img-thumbnail rounded-circle" src="{{ post.author.profile.image.url }}" style="height: 50px; width: 50px;"></span> {{ post.author }}</a></h2>
@@ -66,7 +65,6 @@
 
     </div>
 
-    {% endfor %}
     {% endfor %}
 
 </div>
