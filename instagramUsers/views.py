@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile
+from instagramHome.models import Post
 
 # Create your views here.
 @csrf_protect
@@ -38,13 +39,16 @@ def profile(request):
 
     else:
         u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm()
+        p_form = ProfileUpdateForm(instance=request.user.profile)
 
-    
+    user_posts = Post.objects.filter(author=request.user).order_by('-last_modified')
+    post = Post.objects.filter(author=request.user).order_by('-last_modified')
 
     context = {
         'u_form' : u_form,
         'p_form' : p_form,
+        'user_posts' : user_posts,
+        'posts' : post
     }
 
     return render(request, 'instagramUsers/profile.html', context)
