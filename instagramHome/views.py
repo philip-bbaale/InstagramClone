@@ -41,7 +41,7 @@ def add_post(request):
             post.save()
 
             post_name = form.cleaned_data.get('image_name')
-            messages.success(request, f'Your post has been created for{post_name}!')
+            messages.success(request, f'Your post has been created for {post_name} !')
             return redirect('instagramHome-home')
     else:
         form = PostForm()
