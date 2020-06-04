@@ -3,20 +3,19 @@
 {% load static %}
 {% block content %}
     <div class="container">
-        <div class="card mt-5">
 
-            <form method="POST">
+        <div class="card mt-5">
+            <h3 class=" card-header">Make a Post.</h3>
+            <form  method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class=" border-bottom mb-4 card-header">Make a new post</legend>
-                    <div class="card-body">
-                        {{ form.body }}
-                    </div>
-                </fieldset>
                 <div class="form-group card-body">
-                    <button class="btn btn-outline-info " type="submit">Add Post</button>
+                    {{ form|crispy }}
+                </div>
+                <div class=" card-body mx-auto">
+                    <button type="submit" class="btn btn-primary ">Add.</button>
                 </div>
             </form>
         </div>
+
     </div>
 {% endblock %}

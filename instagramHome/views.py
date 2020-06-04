@@ -27,8 +27,9 @@ def about(request):
 @login_required
 @csrf_protect
 def add_post(request):
+    form = PostForm(request.POST,request.FILES)
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST,request.FILES)
         if form.is_valid():
             post = Post(
                 image = form.cleaned_data["image"],
@@ -44,12 +45,8 @@ def add_post(request):
             return redirect('instagramHome-home')
     else:
         form = PostForm()
-    
-    context = {
-        "form": form,
-    }
 
-    return render(request, 'instagramHome/newPost.html', context, {'title': 'Post'})
+    return render(request, 'instagramHome/newPost.html',{'form': form})
 
 @login_required
 @csrf_protect
