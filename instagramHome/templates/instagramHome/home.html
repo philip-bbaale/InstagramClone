@@ -18,7 +18,7 @@
         </div>
 
         <div class="card-footer">
-            <a href="">
+            <a href="{% url 'likes' post.pk%}">
                 <button type="button" class="btn ">
                     <img src="{% static 'image/icons8-love.png' %}" width="30" height="30"  class="d-inline-block align-top" alt="">
                     <span class="badge badge-light">{{post.likes}}</span>

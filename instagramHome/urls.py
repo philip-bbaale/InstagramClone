@@ -6,4 +6,5 @@ urlpatterns = [
     path('Pabout/', views.about, name='instagramHome-about'),
     path('Pnew_post/',views.add_post, name='instagramHome-new_post'),
     path("<int:pk>/", views.post_detail, name="post_detail"),
+    path('<int:pk>',views.like, name='likes')
 ]

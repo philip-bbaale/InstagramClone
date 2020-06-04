@@ -17,6 +17,7 @@ def home(request):
     context={
         'posts' : post,
     }
+
     return render(request, 'instagramHome/home.html',context)
 
 
@@ -66,5 +67,12 @@ def post_detail(request, pk):
     }
 
     return render(request, "instagramHome/post_detail.html", context)
+
+@login_required
+def like(request, pk):
+    post = Post.objects.get(pk=pk)
+    post.likes+=1
+    post.save()
+    return redirect('instagramHome-home')
 
 
