@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'instagramHome',
     'instagramUsers',
     'crispy_forms',
-    'like',
 ]
 
 MIDDLEWARE = [
