@@ -30,7 +30,15 @@ def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
+            post = Post(
+                image = form.cleaned_data["image"],
+                image_name = form.cleaned_data["image_name"],
+                image_caption = form.cleaned_data["image_caption"],
+                author = request.user
+            )
+            
+            post.save()
+
             post_name = form.cleaned_data.get('image_name')
             messages.success(request, f'Your post has been created for{post_name}!')
             return redirect('instagramHome-home')
@@ -38,10 +46,10 @@ def add_post(request):
         form = PostForm()
     
     context = {
-        'form' : form
+        "form": form,
     }
 
-    return render(request, 'instagramHome/newPost.html',context, {'title':'New Post'})
+    return render(request, 'instagramHome/newPost.html', context, {'title': 'Post'})
 
 @login_required
 @csrf_protect
