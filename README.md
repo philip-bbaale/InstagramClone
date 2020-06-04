@@ -21,6 +21,49 @@ A clone of the website for the popular photo app Instagram.
 * Html,
 * python.
 
+# Installation and Setup
+
+Clone the repository below
+
+```
+git clone https://github.com/{username}/{repo_name}.git
+```
+
+### Create and activate a virtual environment
+
+    virtualenv venv --python=python3.6
+
+    source venv/bin/activate
+
+### Install required Dependencies
+
+    pip install -r requirements.txt
+
+### Copy environment variable
+
+    cp env.sample .env
+
+### Load/refresh .environment variables
+
+    source .env
+
+## Running the application
+
+```
+python manage.py server
+```
+
+
+## Endpoints Available
+ - update your available endpoints
+
+| Method | Endpoint                        | Description                           | Roles         |
+| ------ | ------------------------------- | ------------------------------------- | ------------  |
+| POST   |        /auth/signup             | sign up a user                        | users         |
+| POST   |        /auth/login              | log in  a user                        | users         |
+
+
+
 # Author(s) information: 
 > Namugera Bbaale Philip
 
